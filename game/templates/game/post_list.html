@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -7,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreatePicture</title>
     <!-- css -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/top.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/game.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
 </head>
 
@@ -33,69 +36,9 @@
     <div class="mainContents">
         <div class="wordsArea">
             <ul>
-                <li>
-                    <form action="#">
-                        <span class="No">1</span>
-                        <input type="text" name="word" id="word1">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">2</span>
-                        <input type="text" name="word" id="word2">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">3</span>
-                        <input type="text" name="word" id="word3">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">4</span>
-                        <input type="text" name="word" id="word4">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">5</span>
-                        <input type="text" name="word" id="word5">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">6</span>
-                        <input type="text" name="word" id="word6">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">7</span>
-                        <input type="text" name="word" id="word7">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">8</span>
-                        <input type="text" name="word" id="word8">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
-                <li>
-                    <form action="#">
-                        <span class="No">9</span>
-                        <input type="text" name="word" id="word9">
-                        <input type="submit" class="button" value="GO">
-                    </form>
-                </li>
+                {% for post in posts %}
+                {{ post }}
+                {% endfor %}
             </ul>
         </div>
         <div class="picturesArea">
