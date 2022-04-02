@@ -8,3 +8,7 @@ db.sqlite3
 /static
 .DS_Store
 local_settings.py
+game/templates/game/post_list copy.html
+index.html
+css/common.css
+css/game.css

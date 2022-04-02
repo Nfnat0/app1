@@ -1,18 +1,34 @@
 from django.shortcuts import render
 from game.models import Post
 import requests
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import os
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import ElementClickInterceptedException
+from django.http import JsonResponse
 
-def post_list(request, posts=None):
-    if not posts:
-        posts = [Post(no=i, text='test') for i in range(1,10)]
-        return render(request, 'game/post_list.html', {'posts': posts})
-
-
-    posts = [Post(no=i, text='test') for i in range(1,10)]
-
+def top(request):
+    posts = [Post(word=f'test{i}', src='') for i in range(1,10)]
+    print('top called')
     return render(request, 'game/post_list.html', {'posts': posts})
+
+
+def search(request):
+    print('search called')
+    print(request.POST)
+    text = request.POST['choice']
+    print(text)
+    url = 'https://www.google.co.jp/search'
+
+    # グーグルへ接続
+    req = requests.get(url, params={'q': 'パイソン'})
+
+    # アドレス取得
+    print(req.url)
+    # 検索結果取得
+    print(req.text)
+
+def ajax_post_search(request):
+    word = request.POST.get('word')
+    print(word)
+    d = {
+        'src': f'test_src_{word}',
+    }
+    return JsonResponse(d)

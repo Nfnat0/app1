@@ -4,9 +4,9 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-    no = models.IntegerField()
-    text = models.TextField()
-    img = models.ImageField()
+    id = models.IntegerField(primary_key=True)
+    word = models.TextField()
+    src = models.TextField()
 
     def __str__(self):
-        return f'{self.no}:{self.text} '
+        return f'{self.id}:{self.word}'
